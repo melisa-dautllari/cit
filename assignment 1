@@ -1,5 +1,5 @@
 name = input("Hi student! Enter your name: ")
-score = int(input(Enter test score: "))
+score = int(input("Enter test score: "))
 
 if score >= 90:
     grade = "A"

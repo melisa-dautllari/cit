@@ -1,0 +1,23 @@
+name = input("Hi student! Enter your name: ")
+score = int(input(Enter test score: "))
+
+if score >= 90:
+    grade = "A"
+    result = "You passed the exam!"
+    print("Your grade is ", grade,"and" , result )
+elif score >= 80:
+    grade = "B"
+    result = "You passed the exam!"
+    print("Your grade is ", grade,"and" , result )
+elif score >= 70:
+    grade = "C"
+    result = "You passed the exam!"
+    print("Your grade is ", grade,"and" , result )
+elif score >= 60:
+    grade = "D"
+    result = "You passed the exam!"
+    print("Your grade is ", grade,"and" , result )
+else:
+    grade = "F"
+    result = "You failed the exam!"
+    print("Your grade is ", grade,"and" , result )

@@ -1,0 +1,9 @@
+word = input("Enter a word: ").upper()
+vowels = "AEIOUY"
+result = ""
+
+for letter in word:
+    if letter != "A" and letter != "E" and letter != "I" and letter != "O" and letter != "U" and letter != "Y":
+        result = result + letter
+
+print(result)

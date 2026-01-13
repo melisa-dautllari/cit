@@ -1,0 +1,15 @@
+oddnumbers = 0
+evennumbers = 0
+
+while True:
+    number = int(input("Enter the number (type 0 to stop): "))
+
+    if number == 0:
+        break
+    elif number % 2 == 0:
+        evennumbers += 1
+    else:
+        oddnumbers += 1
+
+print("You entered", evennumbers, "even numbers.")
+print("You entered", oddnumbers, "odd numbers.")

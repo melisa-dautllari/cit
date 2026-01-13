@@ -1,0 +1,26 @@
+students = []
+grades = []
+
+while True:
+    name = input("Enter the name of the student (type DONE to finnish): ")
+
+    if name.lower() == "done":
+        break
+
+    grade = float(input("Enter the grade of the student: "))
+    
+    students.append(name)
+    grades.append(grade)
+
+print("All student names: " , students)
+print("All grades: ", grades)
+print("Grades ascending:")
+print(sorted(grades))
+
+
+print("\nGrades descending:")
+print(sorted(grades, reverse=True))
+
+print("Students and their grades:")
+for i in range(len(students)):
+    print(students[i], "-", grades[i])

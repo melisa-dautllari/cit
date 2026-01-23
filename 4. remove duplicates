@@ -1,0 +1,19 @@
+n = int(input("Enter the number of elements: "))
+numbers = []
+
+for i in range(n):
+    value = int(input(f"Enter element {i+1}: "))
+    numbers.append(value)
+
+unique_numbers = []
+
+for i in range(len(numbers)):
+    is_duplicate = False
+    for j in range(len(unique_numbers)):
+        if numbers[i] == unique_numbers[j]:
+            is_duplicate = True
+            break
+    if not is_duplicate:
+        unique_numbers.append(numbers[i])
+
+print("List after removing duplicates:", unique_numbers)

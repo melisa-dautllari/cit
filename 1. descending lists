@@ -1,0 +1,19 @@
+students = []
+grades = []
+
+while True:
+    name = input("Enter the name of the student (type DONE to finish): ")
+
+    if name.lower() == "done":
+        break
+
+    grade = float(input("Enter the grade of the student: "))
+
+    students.append(name)
+    grades.append(grade)
+
+sorted_indices = sorted(range(len(grades)), key=lambda i: grades[i], reverse=True)
+
+print("\nStudents and their grades (descending):")
+for i in sorted_indices:
+    print(f"{students[i]} - {grades[i]}")

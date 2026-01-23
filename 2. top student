@@ -1,0 +1,25 @@
+students = []
+grades = []
+
+while True:
+    name = input("Enter the name of the student (type DONE to finish): ")
+
+    if name.lower() == "done":
+        break
+
+    grade = float(input("Enter the grade of the student: "))
+
+    students.append(name)
+    grades.append(grade)
+
+
+highest_grade = grades[0]
+top_student = students[0]
+
+for i in range(1, len(grades)):
+    if grades[i] > highest_grade:
+        highest_grade = grades[i]
+        top_student = students[i]
+
+print("\n Congratulations!")
+print(f"{top_student} has the highest grade: {highest_grade}")

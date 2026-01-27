@@ -1,0 +1,442 @@
+#Week 11
+#Assignment 1
+def calculate_grade():
+    name = input("Hi student! Enter your name: ")
+    score = int(input("Enter test score: "))
+
+    if score >= 90:
+        grade = "A"
+        result = "You passed the exam!"
+    elif score >= 80:
+        grade = "B"
+        result = "You passed the exam!"
+    elif score >= 70:
+        grade = "C"
+        result = "You passed the exam!"
+    elif score >= 60:
+        grade = "D"
+        result = "You passed the exam!"
+    else:
+        grade = "F"
+        result = "You failed the exam!"
+
+    print(f"{name}, your grade is {grade} and {result}")
+
+calculate_grade()
+
+#Assignment 2
+def check_leap_year():
+    year = int(input("Enter the year: "))
+
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        print(year, "is a leap year.")
+    else:
+        print(year, "is not a leap year.")
+
+check_leap_year()
+
+#Assignment 3
+def calculate_tax():
+    salary = float(input("Enter your salary: "))
+
+    if salary <= 1000:
+        tax_rate = 0.20
+    elif salary <= 2500:
+        tax_rate = 0.15
+    else:
+        tax_rate = 0.10
+
+    tax = salary * tax_rate
+    remaining_salary = salary - tax
+
+    print("Your salary is", salary, "of which", tax_rate, "is tax and you take home", remaining_salary)
+
+calculate_tax()
+
+#Assignment 4
+def find_largest_number():
+    number1 = int(input("Enter the first number: "))
+    number2 = int(input("Enter the second number: "))
+    number3 = int(input("Enter the third number: "))
+
+    largest = number1
+
+    if number2 > largest:
+        largest = number2
+    if number3 > largest:
+        largest = number3
+
+    print("Between", number1, ",", number2, "and", number3, ",", largest, "is the largest number")
+
+find_largest_number()
+
+#Week 12
+#Assignment 1
+def count_odd_even():
+    oddnumbers = 0
+    evennumbers = 0
+
+    while True:
+        number = int(input("Enter the number (type 0 to stop): "))
+
+        if number == 0:
+            break
+        elif number % 2 == 0:
+            evennumbers += 1
+        else:
+            oddnumbers += 1
+
+    print("You entered", evennumbers, "even numbers.")
+    print("You entered", oddnumbers, "odd numbers.")
+
+count_odd_even()
+
+#Assignment 2
+def calculate_layers():
+    blocks = int(input("Enter number of blocks: "))
+
+    layers = 0
+    used_blocks = 0
+    next_layer = 1
+
+    while used_blocks + next_layer <= blocks:
+        used_blocks += next_layer
+        layers += 1
+        next_layer += 1
+
+    print("Number of layers:", layers)
+
+calculate_layers()
+
+#Assignment 3
+def student_grades_list():
+    students = []
+    grades = []
+
+    while True:
+        name = input("Enter the name of the student (type DONE to finnish): ")
+
+        if name.lower() == "done":
+            break
+
+        grade = float(input("Enter the grade of the student: "))
+
+        students.append(name)
+        grades.append(grade)
+
+    print("All student names:", students)
+    print("All grades:", grades)
+
+    print("\nGrades ascending:")
+    print(sorted(grades))
+
+    print("\nGrades descending:")
+    print(sorted(grades, reverse=True))
+
+    print("\nStudents and their grades:")
+    for i in range(len(students)):
+        print(students[i], "-", grades[i])
+
+student_grades_list()
+
+#Assignment 4
+def remove_vowels():
+    word = input("Enter a word: ").upper()
+    result = ""
+
+    for letter in word:
+        if letter != "A" and letter != "E" and letter != "I" and letter != "O" and letter != "U" and letter != "Y":
+            result = result + letter
+
+    print(result)
+
+remove_vowels()
+
+#Week 13
+#Assignment 1
+def student_grades_descending():
+    students = []
+    grades = []
+
+    while True:
+        name = input("Enter the name of the student (type DONE to finish): ")
+
+        if name.lower() == "done":
+            break
+
+        grade = float(input("Enter the grade of the student: "))
+
+        students.append(name)
+        grades.append(grade)
+
+    sorted_indices = sorted(range(len(grades)), key=lambda i: grades[i], reverse=True)
+
+    print("\nStudents and their grades (descending):")
+    for i in sorted_indices:
+        print(f"{students[i]} - {grades[i]}")
+
+student_grades_descending()
+
+#Assignment 2
+def highest_grade_student():
+    students = []
+    grades = []
+
+    while True:
+        name = input("Enter the name of the student (type DONE to finish): ")
+
+        if name.lower() == "done":
+            break
+
+        grade = float(input("Enter the grade of the student: "))
+
+        students.append(name)
+        grades.append(grade)
+
+    highest_grade = grades[0]
+    top_student = students[0]
+
+    for i in range(1, len(grades)):
+        if grades[i] > highest_grade:
+            highest_grade = grades[i]
+            top_student = students[i]
+
+    print("\nCongratulations!")
+    print(f"{top_student} has the highest grade: {highest_grade}")
+
+highest_grade_student()
+
+#Assignment 3
+def search_number_in_list():
+    numbers = []
+
+    n = int(input("How many numbers do you want to enter? "))
+
+    for i in range(n):
+        num = int(input(f"Enter number {i + 1}: "))
+        numbers.append(num)
+
+    search_num = int(input("Enter the number to search for: "))
+
+    found = False
+
+    for i in range(len(numbers)):
+        if numbers[i] == search_num:
+            print(f"Number found at index {i}")
+            found = True
+            break
+
+    if not found:
+        print("Number not in list")
+
+search_number_in_list()
+
+#Assignment 4
+def remove_duplicates():
+    n = int(input("Enter the number of elements: "))
+    numbers = []
+
+    for i in range(n):
+        value = int(input(f"Enter element {i+1}: "))
+        numbers.append(value)
+
+    unique_numbers = []
+
+    for i in range(len(numbers)):
+        is_duplicate = False
+        for j in range(len(unique_numbers)):
+            if numbers[i] == unique_numbers[j]:
+                is_duplicate = True
+                break
+        if not is_duplicate:
+            unique_numbers.append(numbers[i])
+
+    print("List after removing duplicates:", unique_numbers)
+
+remove_duplicates()
+
+#Assignment 5
+import random
+
+def lottery_game():
+    lottery_numbers = []
+    while len(lottery_numbers) < 6:
+        number = random.randint(1, 49)
+        if number not in lottery_numbers:
+            lottery_numbers.append(number)
+
+    user_numbers = []
+    print("Enter 6 numbers between 1 and 49:")
+
+    while len(user_numbers) < 6:
+        num = int(input(f"Number {len(user_numbers)+1}: "))
+        if num < 1 or num > 49:
+            print("Number must be between 1 and 49. Try again.")
+        elif num in user_numbers:
+            print("You already entered that number. Try again.")
+        else:
+            user_numbers.append(num)
+
+    correct_count = 0
+    for num in user_numbers:
+        if num in lottery_numbers:
+            correct_count += 1
+
+    if correct_count == 1:
+        points = 1
+    elif correct_count == 2:
+        points = 2
+    elif correct_count == 3:
+        points = 4
+    elif correct_count == 4:
+        points = 8
+    elif correct_count == 5:
+        points = 16
+    elif correct_count == 6:
+        points = 32
+    else:
+        points = 0
+
+    print("\nLottery numbers were:", lottery_numbers)
+    print("Your numbers were:", user_numbers)
+    print("You guessed", correct_count, "number(s) correctly.")
+    print("You earned", points, "point(s).")
+
+lottery_game()
+
+#Week14
+#Assignment 1
+def get_student_data():
+    students = []
+    grades = []
+
+    while True:
+        name = input("Enter the name of the student (type DONE to finish): ")
+
+        if name.lower() == "done":
+            break
+
+        while True:
+            try:
+                grade = float(input("Enter the grade of the student: "))
+                break
+            except ValueError:
+                print("Invalid grade. Please enter a numeric value.")
+
+        students.append(name)
+        grades.append(grade)
+
+    return students, grades
+
+
+def find_top_student(students, grades):
+    highest_grade = grades[0]
+    top_student = students[0]
+
+    for i in range(1, len(grades)):
+        if grades[i] > highest_grade:
+            highest_grade = grades[i]
+            top_student = students[i]
+
+    return top_student, highest_grade
+
+
+def display_result(top_student, highest_grade):
+    print("\nCongratulations!")
+    print(f"{top_student} has the highest grade: {highest_grade}")
+
+
+def main():
+    students, grades = get_student_data()
+
+    if len(students) == 0:
+        print("No student data entered.")
+    else:
+        top_student, highest_grade = find_top_student(students, grades)
+        display_result(top_student, highest_grade)
+
+
+main()
+
+#Assignment 2
+def days_in_month(year, month):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        leap_year = True
+    else:
+        leap_year = False
+
+    if month in [1, 3, 5, 7, 8, 10, 12]:
+        return 31
+    elif month in [4, 6, 9, 11]:
+        return 30
+    elif month == 2:
+        if leap_year:
+            return 29
+        else:
+            return 28
+    else:
+        return "Invalid month"
+
+def days_in_month_program():
+    year = int(input("Enter year: "))
+    month = int(input("Enter month: "))
+
+    print("Number of days:", days_in_month(year, month))
+
+days_in_month_program()
+
+#Assignment 3
+def day_of_week(year, month, day):
+    days = ["Sunday", "Monday", "Tuesday",
+            "Wednesday", "Thursday", "Friday", "Saturday"]
+
+    total_days = 0
+
+    for y in range(1, year):
+        if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0):
+            total_days += 366
+        else:
+            total_days += 365
+
+    month_days = [31, 28, 31, 30, 31, 30,
+                  31, 31, 30, 31, 30, 31]
+
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        month_days[1] = 29
+
+    for m in range(month - 1):
+        total_days += month_days[m]
+
+    total_days += day
+
+    return days[total_days % 7]
+
+def day_of_week_program():
+    year = int(input("Enter year: "))
+    month = int(input("Enter month: "))
+    day = int(input("Enter day: "))
+
+    print("Day of the week:", day_of_week(year, month, day))
+
+day_of_week_program()
+
+#Assignment 4
+def is_prime(number):
+    if number <= 1:
+        return False
+
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+
+    return True
+
+def prime_program():
+    num = int(input("Enter a number: "))
+
+    if is_prime(num):
+        print("The number is prime.")
+    else:
+        print("The number is not prime.")
+
+prime_program()

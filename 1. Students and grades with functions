@@ -1,0 +1,51 @@
+def get_student_data():
+    students = []
+    grades = []
+
+    while True:
+        name = input("Enter the name of the student (type DONE to finish): ")
+
+        if name.lower() == "done":
+            break
+
+        while True:
+            try:
+                grade = float(input("Enter the grade of the student: "))
+                break
+            except ValueError:
+                print("Invalid grade. Please enter a numeric value.")
+
+        students.append(name)
+        grades.append(grade)
+
+    return students, grades
+
+
+def find_top_student(students, grades):
+    highest_grade = grades[0]
+    top_student = students[0]
+
+    for i in range(1, len(grades)):
+        if grades[i] > highest_grade:
+            highest_grade = grades[i]
+            top_student = students[i]
+
+    return top_student, highest_grade
+
+
+def display_result(top_student, highest_grade):
+    print("\nCongratulations!")
+    print(f"{top_student} has the highest grade: {highest_grade}")
+
+
+def main():
+    students, grades = get_student_data()
+
+    if len(students) == 0:
+        print("No student data entered.")
+    else:
+        top_student, highest_grade = find_top_student(students, grades)
+        display_result(top_student, highest_grade)
+
+
+main()
